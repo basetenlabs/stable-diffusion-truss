@@ -26,3 +26,10 @@ resources:
 secrets: {}
 system_packages: []
 spec_version: 2.0
+external_data:
+  - url: https://baseten-public.s3.us-west-2.amazonaws.com/models/stable-diffusion-truss/unet/diffusion_pytorch_model.bin
+    local_data_path: unet/diffusion_pytorch_model.bin
+  - url: https://baseten-public.s3.us-west-2.amazonaws.com/models/stable-diffusion-truss/text_encoder/pytorch_model.bin
+    local_data_path: text_encoder/pytorch_model.bin
+  - url: https://baseten-public.s3.us-west-2.amazonaws.com/models/stable-diffusion-truss/vae/diffusion_pytorch_model.bin
+    local_data_path: vae/diffusion_pytorch_model.bin
