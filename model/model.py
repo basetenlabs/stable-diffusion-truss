@@ -30,7 +30,7 @@ class Model:
 
     def load(self):
         self.model = StableDiffusionPipeline.from_pretrained(
-            self.model_id,
+            str(self._data_dir),
             revision="fp16",
             torch_dtype=torch.float16,
         ).to("cuda")
