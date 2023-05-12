@@ -1,4 +1,4 @@
-## Stable Diffusion Truss
+# Stable Diffusion Truss
 
 This is a [Truss](https://truss.baseten.co/) for Stable Diffusion v2.1 using the `StableDiffusionPipeline` from the `diffusers` library. This README will walk you through how to deploy this Truss on Baseten to get your own instance of the Stable Diffusion.
 
@@ -37,10 +37,10 @@ baseten.deploy(stable_diffusion_truss)
 
 Once your Truss is deployed, you can start using Stable Diffusion through the Baseten platform! Navigate to the Baseten UI to watch the model build and deploy and invoke it via the REST API.
 
-## Stable Diffusion API Documentation
+## Stable Diffusion API documentation
 This section provides an overview of the Stable Diffusion API, its parameters, and how to use it. The API consists of a single route named `predict`, which you can invoke to generate images based on the provided parameters.
 
-### API Route: `predict`
+### API route: `predict`
 The predict route is the primary method for generating images based on a given set of parameters. It takes several parameters:
 
 - __prompt__: The input text you'd like to generate an image for
@@ -50,7 +50,7 @@ The predict route is the primary method for generating images based on a given s
 
 The API also supports passing any parameter supported by Diffuser's `StableDiffusionPipeline`.
 
-#### Example Usage
+## Example usage
 You can use the `baseten` model package to invoke your model from Python
 ```
 import baseten
@@ -71,6 +71,7 @@ You can also invoke your model via a REST API
 ```
 curl -X POST " https://app.baseten.co/models/YOUR_MODEL_ID/predict" \
      -H "Content-Type: application/json" \
+     -H 'Authorization: Api-Key {YOUR_API_KEY}' \
      -d '{
            "prompt" : "man on moon",
            "scheduler": "ddim",
