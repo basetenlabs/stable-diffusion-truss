@@ -1,6 +1,6 @@
 bundled_packages_dir: packages
 data_dir: data
-description: Generate images with text prompts via Stable Diffusion.
+description: Generate original images from text prompts.
 environment_variables: {}
 examples_filename: examples.yaml
 input_type: Any
