@@ -9,6 +9,8 @@ model_class_name: Model
 model_framework: custom
 model_metadata:
   pretty_name: Stable Diffusion
+  avatar_url: https://cdn.baseten.co/production/static/stability.png
+  cover_image_url: https://cdn.baseten.co/production/static/sd.png
   tags:
   - image-generation
 model_module_dir: model
