@@ -1,3 +1,5 @@
+[![Deploy to Baseten](https://user-images.githubusercontent.com/2389286/236301770-16f46d4f-4e23-4db5-9462-f578ec31e751.svg)](https://app.baseten.co/explore/stable_diffusion)
+
 # Stable Diffusion Truss
 
 This is a [Truss](https://truss.baseten.co/) for Stable Diffusion v2.1 using the `StableDiffusionPipeline` from the `diffusers` library. This README will walk you through how to deploy this Truss on Baseten to get your own instance of the Stable Diffusion.
