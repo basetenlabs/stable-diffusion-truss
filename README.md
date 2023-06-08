@@ -53,31 +53,46 @@ The predict route is the primary method for generating images based on a given s
 The API also supports passing any parameter supported by Diffuser's `StableDiffusionPipeline`.
 
 ## Example usage
+
 You can use the `baseten` model package to invoke your model from Python
-```
+
+```python
 import baseten
-# You can retrieve your deployed model ID from the UI
-model = baseten.deployed_model_version_id('YOUR_MODEL_ID')
+
+# You can retrieve your deployed model version ID from the UI
+model = baseten.deployed_model_version_id('MODEL_VERSION_ID')
 
 request = {
-    "prompt" : "man on moon"
+    "prompt": "man on moon",
     "scheduler": "ddim",
-    "seed": 12345,
     "negative_prompt": "disfigured hands"
 }
 
 response = model.predict(request)
 ```
 
+The output will be a dictionary with a key `data` mapping to a list with a base64 encoding of the image. You can save the image with the following snippet:
+
+```python
+import base64
+
+img=base64.b64decode(response["data"][0])
+
+img_file = open('image.jpeg', 'wb')
+img_file.write(img)
+img_file.close()
+```
+
 You can also invoke your model via a REST API
 ```
-curl -X POST " https://app.baseten.co/models/YOUR_MODEL_ID/predict" \
+curl -X POST "https://app.baseten.co/models/YOUR_MODEL_ID/predict" \
      -H "Content-Type: application/json" \
      -H 'Authorization: Api-Key {YOUR_API_KEY}' \
      -d '{
            "prompt" : "man on moon",
            "scheduler": "ddim",
-           "seed": 12345,
            "negative_prompt" : "disfigured hands"
          }'
 ```
+
+Again, the model will return a dictionary containing the base64-encoded image, which will need to be decoded and saved.
